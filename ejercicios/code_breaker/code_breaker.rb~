@@ -31,7 +31,7 @@ class CodeBreaker
       message = self.evaluate_guess(letter)
       if(self.completed_word?)
          message = "You won! " + self.word_and_change_state
-      elsif(@life == 0)
+      elsif(self.life == 0)
          message = "Game over! " + self.word_and_change_state 
       end
       return message

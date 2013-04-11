@@ -60,7 +60,7 @@ describe CodeBreaker do
 
    describe 'evaluate_guess' do
 
-     it 'should return "_o__" when guesses the "o"' do
+     it 'should return "_o__" when successful' do
  
        code_breaker = CodeBreaker.new('home')
 
@@ -109,7 +109,7 @@ describe CodeBreaker do
 
    describe 'state_word' do
 
-     it 'should return "____" when the array not contains letters of the word' do
+     it 'should return "____" when no letters of the word in the array ' do
 
        code_breaker = CodeBreaker.new('home')
        code_breaker.evaluate_guess('a')
@@ -180,7 +180,7 @@ describe CodeBreaker do
 
    describe 'result_of_guess' do
 
-     it 'should return "hom_" when guesses the "m" and the array contains "h" and "o"' do
+     it 'should return "hom_" when successful and the array contains "h" and "o"' do
 
        code_breaker = CodeBreaker.new('home')
        code_breaker.evaluate_guess('h')
@@ -194,7 +194,7 @@ describe CodeBreaker do
 
    describe 'result_of_guess' do
 
-     it 'should return "You won! The word is home" when guesses the "e" and the array contains "h", "o" and "m"' do
+     it 'should return "You won! The word is home" when successful and the array contains "h", "o" and "m"' do
 
        code_breaker = CodeBreaker.new('home')
        code_breaker.evaluate_guess('h')
@@ -209,7 +209,7 @@ describe CodeBreaker do
 
    describe 'result_of_guess' do
 
-     it 'should return "Game over! The word is home" when fail and has not lives' do
+     it 'should return "Game over! The word is home" when fail and have not lives' do
 
        code_breaker = CodeBreaker.new('home')
        code_breaker.evaluate_guess('a')
