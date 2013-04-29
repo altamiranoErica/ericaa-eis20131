@@ -1,9 +1,0 @@
-Feature: Adivinar palabra
-
-  Background: Definir palabra a adivinar
-    Given que tengo la palabra "hola"
-
-  Scenario: La letra indica pertenece a la palabra
-    When elijo "h"
-    Then deberia ver "h***"
-

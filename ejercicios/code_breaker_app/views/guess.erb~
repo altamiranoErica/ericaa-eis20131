@@ -1,8 +1,0 @@
-<html>
-	<head>
-	</head>
-	<body>
-      <h2 aling=center><%= @message %></h2>
-      <h2 aling=cente>Estado: <%= @status_word %></h2>
-	</body>
-</html>
