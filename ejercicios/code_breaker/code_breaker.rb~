@@ -63,7 +63,7 @@ class CodeBreaker
    end
 
    def guess_and_generate_message(letter)
-      begin
+      #begin
          guessed = self.guess(letter)
          case
             when completed_word? then "Juego terminado, ganaste"
@@ -71,9 +71,13 @@ class CodeBreaker
             when guessed then "acierto"
             else "ups!"
          end
-      rescue
-         "Este juego ha finalizado. Comience un nuevo juego"
-      end
+      #rescue
+      #   "Este juego ha finalizado. Comience un nuevo juego"
+      #end
    end
        
 end
+
+c = CodeBreaker.new('hola', 2)
+m = c.guess_and_generate_message('h')
+puts m
