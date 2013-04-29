@@ -236,11 +236,13 @@ Given /^the note "([^"]*)", "([^"]*)" exists$/ do |arg1, arg2|
 end
                               
 Given /^que tengo la palabra "([^"]*)"$/ do |word|
-  visit("/code_breaker?word=#{word}")
+  visit("/add_word?word=#{word}")
 end
 
 When /^elijo "([^"]*)"$/ do |letter|
-  visit("/guess?letter=#{letter}") 
+  visit("/guess") 
+  fill_in("letter", :with => letter)
+  click_button("Adivinar")
 end
 
 Then /^deberia ver "([^"]*)"$/ do |esperado|

@@ -1,24 +1,35 @@
 require 'sinatra/base'
-require '../code_breaker/code_breaker.rb'
+require './models/code_breaker_model.rb'
 
 class MyApplication < Sinatra::Base
 
    enable :sessions
 
    get '/code_breaker' do
-      word = params[:word]
-      session[:code_breaker] = CodeBreaker.new(word, 3)
-
       erb :code_breaker
    end
 
+   get '/add_word' do
+      word = params[:word]
+      session[:code_breaker_m] = CodeBreakerModel.new(word, 3)
+
+      redirect '/guess'
+   end
+
    get '/guess' do
-      letter = params[:letter]
-      code_breaker = session[:code_breaker]
-      @message = code_breaker.guess_and_generate_message(letter)
-      @status_word = code_breaker.word_status
+      code_breaker_m = session[:code_breaker_m]
+      @message = code_breaker_m.message()
+      @status_word = code_breaker_m.word_status
       
       erb :guess
+   end
+
+   post '/guess' do
+      letter = params[:letter]
+      code_breaker_m = session[:code_breaker_m]
+      @message = code_breaker_m.guess(letter)
+      
+      redirect '/guess'
    end
 
 
