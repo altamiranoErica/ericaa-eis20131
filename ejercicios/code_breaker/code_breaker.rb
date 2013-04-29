@@ -61,19 +61,5 @@ class CodeBreaker
       end
       return status
    end
-
-   def guess_and_generate_message(letter)
-      begin
-         guessed = self.guess(letter)
-         case
-            when completed_word? then "Juego terminado, ganaste"
-            when (@life == 0) then "ups! Juego terminado, perdiste"
-            when guessed then "acierto"
-            else "ups!"
-         end
-      rescue
-         "Este juego ha finalizado. Comience un nuevo juego"
-      end
-   end
-       
+      
 end
